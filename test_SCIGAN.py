@@ -3,10 +3,14 @@
 import argparse
 import os
 import shutil
+import tensorflow as tf
 
 from data_simulation import get_dataset_splits, TCGA_Data
 from SCIGAN import SCIGAN_Model
 from utils.evaluation_utils import compute_eval_metrics
+
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+tf.compat.v1.logging.set_verbosity(tf.compat.v1.logging.ERROR)
 
 
 def init_arg():
